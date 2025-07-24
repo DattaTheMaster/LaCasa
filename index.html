@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LaCasa</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bona+Nova:ital,wght@0,400;0,700;1,400&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Tangerine&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>LaCasa.</h2>
+            </div>
+
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#browse" class="nav-link">Browse</a>
+
+                <div class="dropdown">
+                    <a href="#" class="nav-link dropdown-toggle">
+                        Luxuries <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="luxury.html#beach-houses">Beach Houses</a>
+                        <a href="luxury.html#penthouses">Penthouses</a>
+                        <a href="luxury.html#mansions">Mansions</a>
+                        <a href="luxury.html#villas">Villas</a>
+                    </div>
+                </div>
+
+                <a href="#" class="nav-link" onclick="showPrototypeAlert()">Contact</a>
+
+                <button class="theme-toggle" onclick="toggleTheme()">
+                    <i class="fas fa-moon" id="theme-icon"></i>
+                </button>
+            </div>
+
+            <div class="hamburger" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <div class="heroData">
+                    <h1>LaCasa.</h1>
+                    <p>Looking for a perfect house for your needs? We help you find your dream home.</p>
+                </div>
+                <div class="hero-image">
+                    <img src="heroPic.jpg" alt="Luxury Property">
+                </div>
+            </div>
+
+        </section>
+
+        <section id="user-form" class="user-form-section">
+            <div class="container">
+                <h2>Tell Us About Your Needs</h2>
+                <p>Select your role and provide details to get personalized recommendations</p>
+
+                <div class="form-container">
+                    <div class="user-type-selector">
+                        <button class="user-type-btn active" data-type="buyer" onclick="selectUserType('buyer')">
+                            <i class="fas fa-home"></i>
+                            <span>Buyer</span>
+                        </button>
+                        <button class="user-type-btn" data-type="seller" onclick="selectUserType('seller')">
+                            <i class="fas fa-dollar-sign"></i>
+                            <span>Seller</span>
+                        </button>
+                        <button class="user-type-btn" data-type="tenant" onclick="selectUserType('tenant')">
+                            <i class="fas fa-key"></i>
+                            <span>Tenant</span>
+                        </button>
+                    </div>
+
+                    <form id="buyer-form" class="user-form active">
+                        <div class="form-group">
+                            <label for="buyer-location">Preferred Location</label>
+                            <select id="buyer-location" required>
+                                <option value="">Select a location</option>
+                                <option value="gachibowli">Gachibowli, HYD</option>
+                                <option value="jubilee-hills">Jubilee Hills, HYD</option>
+                                <option value="manikonda">Manikonda, HYD</option>
+                                <option value="banjarahills">Banjara Hills, HYD</option>
+                                <option value="madhapur">Madhapur, HYD</option>
+                                <option value="lb-nagar">LB Nagar, HYD</option>
+                                <option value="uppal">Uppal, HYD</option>
+                                <option value="dilsukh-nagar">Dilsukh Nagar, HYD</option>
+                                <option value="kukkatpally">Kukatpally, HYD</option>
+                                <option value="shamshabad">Shamshabad, HYD</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="buyer-bhk">BHK Preference</label>
+                            <select id="buyer-bhk" required>
+                                <option value="">Select BHK</option>
+                                <option value="1">1 BHK</option>
+                                <option value="2">2 BHK</option>
+                                <option value="3">3 BHK</option>
+                                <option value="4">4 BHK</option>
+                                <option value="5+">5+ BHK</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="buyer-budget">Budget Range</label>
+                            <select id="buyer-budget" required>
+                                <option value="">Select budget</option>
+                                <option value="0-30L">Under 30 Lakhs</option>
+                                <option value="30L-50L">30 Lakhs - 50 Lakhs</option>
+                                <option value="50L-1Cr">50 Lakhs - 1 Crore</option>
+                                <option value="1Cr-2Cr">1 Crore - 2 Crores</option>
+                                <option value="2Cr+">2 Crores+</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Find Properties</button>
+                    </form>
+
+                    <form id="seller-form" class="user-form">
+                        <div class="form-group">
+                            <label for="seller-property-type">Property Type</label>
+                            <select id="seller-property-type" required>
+                                <option value="">Select property type</option>
+                                <option value="house">House</option>
+                                <option value="condo">Condo</option>
+                                <option value="townhouse">Townhouse</option>
+                                <option value="apartment">Apartment</option>
+                                <option value="land">Land</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seller-location">Property Location</label>
+                            <input type="text" id="seller-location" placeholder="Enter property address" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seller-price">Expected Price</label>
+                            <input type="text" id="seller-price" placeholder="e.g., $750,000" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Get Valuation</button>
+                    </form>
+
+                    <form id="tenant-form" class="user-form">
+                        <div class="form-group">
+                            <label for="tenant-location">Preferred Area</label>
+                            <input type="text" id="tenant-location" placeholder="Enter preferred area" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="tenant-rent-budget">Monthly Rent Budget</label>
+                            <select id="tenant-rent-budget" required>
+                                <option value="">Select budget</option>
+                                <option value="0-10000">Under 10,000</option>
+                                <option value="10000-25000">10,000 - 25,000</option>
+                                <option value="25000-40000">25,000 - 40,000</option>
+                                <option value="40000-60000">40,000 - 60,000</option>
+                                <option value="60000+">60,000+</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="tenant-move-date">Move-in Date</label>
+                            <input type="date" id="tenant-move-date" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Find Rentals</button>
+                    </form>
+                </div>
+
+                <div id="form-results" class="form-results hidden">
+                    <h3>Request Received</h3>
+                    <div id="results-content"></div>
+                    <button class="btn btn-secondary" onclick="resetForm()">Submit Another Request</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="user-services" class="user-services-section">
+            <div class="container">
+                <h2>Our Services</h2>
+                <p>Comprehensive real estate solutions for all your needs</p>
+
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-header">
+                            <i class="fas fa-home"></i>
+                            <h3>For Buyers</h3>
+                        </div>
+                        <p>Find your perfect home with our comprehensive buying services</p>
+
+                        <div class="service-features">
+                            <div class="feature-item">
+                                <i class="fas fa-search"></i>
+                                <div>
+                                    <h4>Advanced Property Search</h4>
+                                    <p>Filter by location, price, size, and amenities to find properties that match your
+                                        exact criteria</p>
+                                </div>
+                            </div>
+
+                            <div class="feature-item">
+                                <i class="fas fa-calculator"></i>
+                                <div>
+                                    <h4>Mortgage Calculator</h4>
+                                    <p>Calculate monthly payments, interest rates, and affordability based on your
+                                        budget</p>
+                                </div>
+                            </div>
+
+                            <div class="feature-item">
+                                <i class="fas fa-heart"></i>
+                                <div>
+                                    <h4>Save Favorites</h4>
+                                    <p>Create a personalized list of properties you love and track price changes</p>
+                                </div>
+                            </div>
+
+                            <div class="feature-item">
+                                <i class="fas fa-map-marked-alt"></i>
+                                <div>
+                                    <h4>Neighborhood Insights</h4>
+                                    <p>Get detailed information about schools, transportation, and local amenities</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="service-actions">
+                            <button class="btn btn-primary" onclick="showPrototypeAlert()">Start Property
+                                Search</button>
+                            <button class="btn btn-secondary" onclick="showPrototypeAlert()">Schedule
+                                Consultation</button>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-header">
+                            <i class="fas fa-dollar-sign"></i>
+                            <h3>For Sellers</h3>
+                        </div>
+                        <p>Maximize your property value with our expert selling services</p>
+
+                        <div class="service-features">
+                            <div class="feature-item">
+                                <i class="fas fa-chart-line"></i>
+                                <div>
+                                    <h4>Free Property Valuation</h4>
+                                    <p>Get an accurate market assessment of your property's current value</p>
+                                </div>
+                            </div>
+
+                            <div class="feature-item">
+                                <i class="fas fa-camera"></i>
+                                <div>
+                                    <h4>Professional Marketing</h4>
+                                    <p>High-quality photography, virtual tours, and premium listing placement</p>
+                                </div>
+                            </div>
+
+                            <div class="feature-item">
+                                <i class="fas fa-users"></i>
+                                <div>
+                                    <h4>Expert Agent Support</h4>
+                                    <p>Dedicated real estate professionals to guide you through the selling process</p>
+                                </div>
+                            </div>
+
+                            <div class="feature-item">
+                                <i class="fas fa-handshake"></i>
+                                <div>
+                                    <h4>Negotiation Expertise</h4>
+                                    <p>Skilled negotiators to ensure you get the best possible price for your property
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="service-actions">
+                            <button class="btn btn-primary" onclick="showPrototypeAlert()">Get Property
+                                Valuation</button>
+                            <button class="btn btn-secondary" onclick="showPrototypeAlert()">List My Property</button>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-header">
+                            <i class="fas fa-key"></i>
+                            <h3>For Tenants</h3>
+                        </div>
+                        <p>Find the perfect rental property with our tenant-focused services</p>
+
+                        <div class="service-features">
+                            <div class="feature-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <h4>Location-Based Search</h4>
+                                    <p>Find rentals in your preferred neighborhoods with detailed area information</p>
+                                </div>
+                            </div>
+
+                            <div class="feature-item">
+                                <i class="fas fa-file-contract"></i>
+                                <div>
+                                    <h4>Online Applications</h4>
+                                    <p>Streamlined rental application process with digital document submission</p>
+                                </div>
+                            </div>
+
+                            <div class="feature-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <div>
+                                    <h4>Tenant Protection</h4>
+                                    <p>Know your rights, understand lease terms, and get legal guidance when needed</p>
+                                </div>
+                            </div>
+
+                            <div class="feature-item">
+                                <i class="fas fa-calendar-check"></i>
+                                <div>
+                                    <h4>Move-in Coordination</h4>
+                                    <p>Assistance with scheduling viewings, move-in dates, and utility setup</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="service-actions">
+                            <button class="btn btn-primary" onclick="showPrototypeAlert()">Search Rentals</button>
+                            <button class="btn btn-secondary" onclick="showPrototypeAlert()">Apply for Property</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="browse" class="browse-section">
+            <div class="container">
+                <h2>Browse Properties</h2>
+                <div class="property-grid" id="property-grid">
+                </div>
+            </div>
+        </section>
+
+        <section id="buyer-section" class="user-section hidden">
+            <div class="container">
+                <h2>For Buyers</h2>
+                <p>Explore our extensive collection of properties for sale</p>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-search"></i>
+                        <h3>Advanced Search</h3>
+                        <p>Find properties that match your exact criteria</p>
+                        <button class="btn btn-primary" onclick="showPrototypeAlert()">Start Search</button>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-calculator"></i>
+                        <h3>Mortgage Calculator</h3>
+                        <p>Calculate your monthly payments</p>
+                        <button class="btn btn-primary" onclick="showPrototypeAlert()">Calculate</button>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-heart"></i>
+                        <h3>Save Favorites</h3>
+                        <p>Keep track of properties you love</p>
+                        <button class="btn btn-primary" onclick="showPrototypeAlert()">View Saved</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="seller-section" class="user-section hidden">
+            <div class="container">
+                <h2>For Sellers</h2>
+                <p>Get the best value for your property</p>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Property Valuation</h3>
+                        <p>Get an instant estimate of your property's worth</p>
+                        <button class="btn btn-primary" onclick="showPrototypeAlert()">Get Valuation</button>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-camera"></i>
+                        <h3>List Your Property</h3>
+                        <p>Create a professional listing</p>
+                        <button class="btn btn-primary" onclick="showPrototypeAlert()">List Now</button>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-users"></i>
+                        <h3>Agent Support</h3>
+                        <p>Connect with experienced real estate agents</p>
+                        <button class="btn btn-primary" onclick="showPrototypeAlert()">Find Agent</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tenant-section" class="user-section hidden">
+            <div class="container">
+                <h2>For Tenants</h2>
+                <p>Find your perfect rental property</p>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Location Search</h3>
+                        <p>Find rentals in your preferred area</p>
+                        <button class="btn btn-primary" onclick="showPrototypeAlert()">Search Areas</button>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-file-contract"></i>
+                        <h3>Rental Application</h3>
+                        <p>Apply for properties online</p>
+                        <button class="btn btn-primary" onclick="showPrototypeAlert()">Apply Now</button>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Tenant Protection</h3>
+                        <p>Know your rights and responsibilities</p>
+                        <button class="btn btn-primary" onclick="showPrototypeAlert()">Learn More</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Elite Properties</h3>
+                    <p>Your trusted partner in real estate</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="#" onclick="showPrototypeAlert()">About Us</a>
+                    <a href="#" onclick="showPrototypeAlert()">Services</a>
+                    <a href="#" onclick="showPrototypeAlert()">Privacy Policy</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📧 info@eliteproperties.com</p>
+                    <p>📞 +1 (555) 123-4567</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Elite Properties. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
